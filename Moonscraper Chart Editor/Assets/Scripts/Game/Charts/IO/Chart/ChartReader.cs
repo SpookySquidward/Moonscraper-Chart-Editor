@@ -498,9 +498,24 @@ namespace MoonscraperChartEditor.Song.IO
                             isSection = true;
                         }
 
+                        bool isLyric = false;
                         for (int i = startIndex; i < stringSplit.Length; ++i)
                         {
-                            sb.Append(stringSplit[i].Trim('"'));
+                            //Remove the initial and terminal quotation marks on lyric events to retain embedded quotes
+                            //Start by filtering out any erroneous quotation marks before the "lyric ... event
+                            if (!isLyric)
+                                sb.Append(stringSplit[i].Trim('"'));
+                            //Once a lyric event has started, keep all quotation marks except for the terminal mark on the last word
+                            else
+                            {
+                                if ((i == stringSplit.Length - 1) && (stringSplit[i][stringSplit[i].Length - 1] == '"'))
+                                    sb.Append(stringSplit[i].Remove(stringSplit[i].Length - 1));
+                                else
+                                    sb.Append(stringSplit[i]);
+                            }
+                            //Finally, check for a lyric start event for the next loop
+                            isLyric = (stringSplit[i].ToLower().Contains("lyric") || isLyric);
+
                             if (i < stringSplit.Length - 1)
                                 sb.Append(" ");
                         }
