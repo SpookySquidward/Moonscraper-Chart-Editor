@@ -21,6 +21,7 @@ public class SettingsController : TabMenu
     public Toggle resetAfterGameplay;
     public Toggle autoValidateSongOnSave;
     public Toggle slowdownPitchCorrectionEnabled;
+    public Toggle includeLyricQuotesToggle;
 
     public Slider musicSourceSlider;
     public Slider guitarSourceSlider;
@@ -45,7 +46,7 @@ public class SettingsController : TabMenu
     public Dropdown fpsSelectDropdown;
     public Dropdown bgSwapTimeDropdown;
 
-    public Dropdown antiAliasingLevel; 
+    public Dropdown antiAliasingLevel;
 
     public void SetSettingsGroup(RectTransform content)
     {
@@ -195,6 +196,7 @@ public class SettingsController : TabMenu
         resetAfterGameplay.isOn = Globals.gameSettings.resetAfterGameplay;
         autoValidateSongOnSave.isOn = Globals.gameSettings.autoValidateSongOnSave;
         slowdownPitchCorrectionEnabled.isOn = Globals.gameSettings.slowdownPitchCorrectionEnabled;
+        includeLyricQuotesToggle.isOn = Globals.gameSettings.includeLyricQuotes;
 
         gameplayStartDelayDropdown.value = (int)(Globals.gameSettings.gameplayStartDelayTime * 2.0f);
 
@@ -225,7 +227,7 @@ public class SettingsController : TabMenu
         }
 
         Update();
-    }  
+    }
 
     public void SetFPS(int dropdownValue)
     {
@@ -257,7 +259,7 @@ public class SettingsController : TabMenu
             Globals.gameSettings.notePlacementMode = GameSettings.NotePlacementMode.LeftyFlip;
         else
             Globals.gameSettings.notePlacementMode = GameSettings.NotePlacementMode.Default;
-        
+
         editor.events.leftyFlipToggledEvent.Fire();
     }
 
@@ -286,6 +288,11 @@ public class SettingsController : TabMenu
         Globals.gameSettings.slowdownPitchCorrectionEnabled = value;
     }
 
+    public void SetIncludeLyricQuotes(bool value)
+    {
+        Globals.gameSettings.includeLyricQuotes = value;
+    }
+
     public void IncrementSustainsGapStep()
     {
         Globals.gameSettings.sustainGapStep.Increment();
@@ -301,7 +308,7 @@ public class SettingsController : TabMenu
         if ((Globals.gameSettings.clapProperties & setting) != 0)
             toggle.isOn = true;
         else
-            toggle.isOn = false;  
+            toggle.isOn = false;
     }
 
     void SetClapProperties(bool value, GameSettings.ClapToggle setting)

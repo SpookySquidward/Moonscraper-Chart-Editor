@@ -513,8 +513,8 @@ namespace MoonscraperChartEditor.Song.IO
                                 else
                                     sb.Append(stringSplit[i]);
                             }
-                            //Finally, check for a lyric start event for the next loop
-                            isLyric = (stringSplit[i].ToLower().Contains("lyric") || isLyric);
+                            //Finally, check for a lyric start event for the next loop if lyric quotes are to be included
+                            isLyric = ((stringSplit[i].ToLower().Contains("lyric") && Globals.gameSettings.includeLyricQuotes) || isLyric);
 
                             if (i < stringSplit.Length - 1)
                                 sb.Append(" ");
