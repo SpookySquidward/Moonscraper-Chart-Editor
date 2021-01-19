@@ -49,6 +49,7 @@ public class GameSettings
     public bool resetAfterPlay = false;
     public bool resetAfterGameplay = false;
     public bool slowdownPitchCorrectionEnabled = false;
+    public bool includeLyricQuotes = false;
 
     public int audioCalibrationMS = 0;                     // Increase to start the audio sooner
     public int clapCalibrationMS = 0;
@@ -143,6 +144,7 @@ public class GameSettings
             slowdownPitchCorrectionEnabled = iniparse.ReadValue(SECTION_NAME_SETTINGS, "Slowdown Pitch Correction Enabled", false);
             customBgSwapTime = iniparse.ReadValue(SECTION_NAME_SETTINGS, "Custom Background Swap Time", 30);
             drumsLaneCount = iniparse.ReadValue(SECTION_NAME_SETTINGS, "Drums Lane Count", 5);
+            includeLyricQuotes = iniparse.ReadValue(SECTION_NAME_SETTINGS, "Allow Quotation Marks in Lyrics", false);
             drumsModeOptions = (DrumModeOptions)iniparse.ReadValue(SECTION_NAME_SETTINGS, "Drums Mode", (int)DrumModeOptions.Standard);
             if (!System.Enum.IsDefined(typeof(DrumModeOptions), drumsModeOptions))
             {
@@ -240,6 +242,7 @@ public class GameSettings
             iniparse.WriteValue(SECTION_NAME_SETTINGS, "Song Validator Modes", (int)songValidatorModes);
             iniparse.WriteValue(SECTION_NAME_SETTINGS, "Auto Validate Song On Save", autoValidateSongOnSave);
             iniparse.WriteValue(SECTION_NAME_SETTINGS, "Auto Check For Updates", automaticallyCheckForUpdates);    
+            iniparse.WriteValue(SECTION_NAME_SETTINGS, "Allow Quotation Marks in Lyrics", includeLyricQuotes);
 
             // Audio levels
             iniparse.WriteValue(SECTION_NAME_AUDIO, "Master", vol_master);

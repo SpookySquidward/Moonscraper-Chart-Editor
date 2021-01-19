@@ -21,6 +21,7 @@ public class SettingsController : TabMenu
     public Toggle resetAfterGameplay;
     public Toggle autoValidateSongOnSave;
     public Toggle slowdownPitchCorrectionEnabled;
+    public Toggle includeLyricQuotesToggle;
 
     public Slider musicSourceSlider;
     public Slider guitarSourceSlider;
@@ -195,6 +196,7 @@ public class SettingsController : TabMenu
         resetAfterGameplay.isOn = Globals.gameSettings.resetAfterGameplay;
         autoValidateSongOnSave.isOn = Globals.gameSettings.autoValidateSongOnSave;
         slowdownPitchCorrectionEnabled.isOn = Globals.gameSettings.slowdownPitchCorrectionEnabled;
+        includeLyricQuotesToggle.isOn = Globals.gameSettings.includeLyricQuotes;
 
         gameplayStartDelayDropdown.value = (int)(Globals.gameSettings.gameplayStartDelayTime * 2.0f);
 
@@ -284,6 +286,11 @@ public class SettingsController : TabMenu
     public void SetSlowdownPitchCorrectionEnabled(bool value)
     {
         Globals.gameSettings.slowdownPitchCorrectionEnabled = value;
+    }
+
+    public void SetIncludeLyricQuotes(bool value)
+    {
+        Globals.gameSettings.includeLyricQuotes = value;
     }
 
     public void IncrementSustainsGapStep()
