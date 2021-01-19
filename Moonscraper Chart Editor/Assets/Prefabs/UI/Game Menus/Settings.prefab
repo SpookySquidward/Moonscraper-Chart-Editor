@@ -1415,7 +1415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635727e25c735994fb6f858716ba8247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: Only affects loading behavior
+  message: Affects loading behavior for .chart files
   offset: {x: 200, y: 15}
 --- !u!1 &7291672961392573064
 GameObject:
