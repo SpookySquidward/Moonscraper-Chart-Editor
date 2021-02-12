@@ -7,14 +7,12 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
 {
     class LyricItem
     {
-        public LyricEditorItemInterface lyricItemInterface;
         public Event lyricItemEvent;
         public string text = "";
         public bool hasBeenPlaced = false;
 
-        public LyricItem(LyricEditorItemInterface lyricItemInterface, Event lyricEvent)
+        public LyricItem(Event lyricEvent)
         {
-            this.lyricItemInterface = lyricItemInterface;
             this.lyricItemEvent = lyricEvent;
         }
 
@@ -39,7 +37,7 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
     }
 
     List<LyricItem> lyricEvents = new List<LyricItem>();
-    int lyricEventsIndex = 0;
+    int lyricEventsIndex = 1;
     public const string c_lyricPrefix = "lyric ";
     public const string c_phraseStartKeyword = "phrase_start";
     public const string c_phraseEndKeyword = "phrase_end";
@@ -83,5 +81,18 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
     public void SetPhraseEnd(uint tick)
     {
         lyricEvents.ElementAt(lyricEvents.Count).SetTime(tick);
+    }
+
+    // Create LyricItem events for each passed syllable and the phrase start
+    // and phrase end positions. Must be called before using PlaceNextLyric(),
+    // SetPhraseStart(), or SetPhraseEnd()!
+    public void InitializeSyllables(List<string> syllables)
+    {
+        lyricEvents.Add(new LyricItem(new Event(c_phraseStartKeyword, 0)));
+        foreach (string syllable in syllables)
+        {
+            lyricEvents.Add(new LyricItem(new Event(syllable, 0)));
+        }
+        lyricEvents.Add(new LyricItem(new Event(c_phraseEndKeyword, 0)));
     }
 }
