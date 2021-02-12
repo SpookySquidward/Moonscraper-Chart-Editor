@@ -93,6 +93,8 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
     // SetPhraseStart(), or SetPhraseEnd()!
     public void InitializeSyllables(List<string> syllables)
     {
+        lyricEvents.Clear();
+
         lyricEvents.Add(new LyricItem(new Event(c_phraseStartKeyword, 0)));
         foreach (string syllable in syllables)
         {
