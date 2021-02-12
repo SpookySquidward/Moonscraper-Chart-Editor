@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine.UI;
 using MoonscraperChartEditor.Song;
+using System.Linq;
 
 public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
         public LyricEditorItemInterface lyricItemInterface;
         public Event lyricItemEvent;
         public string text = "";
+        public bool hasBeenPlaced = false;
 
         public LyricItem(LyricEditorItemInterface lyricItemInterface, Event lyricEvent)
         {
@@ -32,10 +34,18 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
             ChartEditor.Instance.commandStack.Push(batchedCommands);
 
             this.lyricItemEvent = newLyric;
+            this.hasBeenPlaced = true;
         }
     }
 
-    List<LyricItem> syllables = new List<LyricItem>();
+    List<LyricItem> lyricEvents = new List<LyricItem>();
+    int lyricEventsIndex = 0;
+    public const string c_lyricPrefix = "lyric ";
+    public const string c_phraseStartKeyword = "phrase_start";
+    public const string c_phraseEndKeyword = "phrase_end";
+    public bool phraseStartPlaced = false;
+    public bool phraseEndPlaced = false;
+    public bool allSyllablesPlaced = false;
 
     // Start is called before the first frame update
     void Start()
@@ -47,5 +57,19 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
     void Update()
     {
 
+    }
+
+    // Set the tick of the next syllable in lyricEvents. Will not set the phrase
+    // start or phrase end events.
+    public void PlaceNextLyric(uint tick)
+    {
+        if (lyricEventsIndex < lyricEvents.Count - 1)
+        {
+            lyricEvents.ElementAt(lyricEventsIndex).SetTime(tick);
+            lyricEventsIndex += 1;
+
+            if (lyricEventsIndex == lyricEvents.Count - 1)
+                allSyllablesPlaced = true;
+        }
     }
 }
