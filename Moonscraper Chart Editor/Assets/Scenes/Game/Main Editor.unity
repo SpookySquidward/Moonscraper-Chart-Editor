@@ -3290,7 +3290,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1009914420}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0
+  m_Size: 0.9961622
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -10612,6 +10612,7 @@ GameObject:
   - component: {fileID: 528069707}
   - component: {fileID: 528069709}
   - component: {fileID: 528069708}
+  - component: {fileID: 528069710}
   m_Layer: 5
   m_Name: Lyric Phrase Template
   m_TagString: Untagged
@@ -10676,6 +10677,18 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
   m_ChildControlHeight: 1
+--- !u!114 &528069710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528069706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ca91b7db87452a418288f77e5f75651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &534357237 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4289244241869284558, guid: a42c0e6dbb8072644a562b198b8ffdc2,
@@ -48656,7 +48669,7 @@ PrefabInstance:
     - target: {fileID: 3477481083935860387, guid: 5ad67f82aa762754aafc08e0faccc9f6,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -13.500214
+      value: -13.500244
       objectReference: {fileID: 0}
     - target: {fileID: 3477481083935860387, guid: 5ad67f82aa762754aafc08e0faccc9f6,
         type: 3}
