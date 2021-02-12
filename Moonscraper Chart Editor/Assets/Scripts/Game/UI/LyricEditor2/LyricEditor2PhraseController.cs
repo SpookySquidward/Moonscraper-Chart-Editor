@@ -38,12 +38,17 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
 
     List<LyricItem> lyricEvents = new List<LyricItem>();
     int lyricEventsIndex = 1;
+    List<string> displaySyllables;
+
     public const string c_lyricPrefix = "lyric ";
     public const string c_phraseStartKeyword = "phrase_start";
     public const string c_phraseEndKeyword = "phrase_end";
     public bool phraseStartPlaced = false;
     public bool phraseEndPlaced = false;
     public bool allSyllablesPlaced = false;
+
+    [UnityEngine.SerializeField]
+    Text phraseText;
 
     // Start is called before the first frame update
     void Start()
@@ -94,5 +99,22 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
             lyricEvents.Add(new LyricItem(new Event(syllable, 0)));
         }
         lyricEvents.Add(new LyricItem(new Event(c_phraseEndKeyword, 0)));
+
+        generateDisplaySyllables(syllables);
+    }
+
+    // Create a list of syllables with added spaces that can be easily displayed
+    // to the phraseText component.
+    void generateDisplaySyllables(List<string> syllables)
+    {
+        for (int i = 0; i < syllables.Count; i++)
+        {
+            string currentSyllable = syllables.ElementAt(i);
+
+            if (!currentSyllable.EndsWith("-"))
+                currentSyllable += " ";
+
+            displaySyllables.Add(currentSyllable);
+        }
     }
 }
