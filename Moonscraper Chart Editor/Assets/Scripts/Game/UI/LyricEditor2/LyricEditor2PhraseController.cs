@@ -72,4 +72,16 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
                 allSyllablesPlaced = true;
         }
     }
+
+    // Set the phrase_start event tick
+    public void SetPhraseStart(uint tick)
+    {
+        lyricEvents.ElementAt(0).SetTime(tick);
+    }
+
+    // Set the phrase_end event tick
+    public void SetPhraseEnd(uint tick)
+    {
+        lyricEvents.ElementAt(lyricEvents.Count).SetTime(tick);
+    }
 }
