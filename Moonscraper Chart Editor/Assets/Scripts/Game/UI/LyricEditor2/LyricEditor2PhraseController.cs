@@ -130,8 +130,8 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
         {
             string currentSyllable = syllables.ElementAt(i);
 
-            if (!currentSyllable.EndsWith("-"))
-                currentSyllable += " ";
+            // if (!currentSyllable.EndsWith("-"))
+            //     currentSyllable += " ";
 
             displaySyllables.Add(currentSyllable);
         }
