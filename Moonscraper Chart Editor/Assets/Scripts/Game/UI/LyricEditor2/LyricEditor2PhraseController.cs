@@ -14,6 +14,11 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
         public LyricItem(Event lyricEvent)
         {
             this.lyricItemEvent = lyricEvent;
+
+            List<SongEditCommand> commands = new List<SongEditCommand>();
+            commands.Add(new SongEditAdd(this.lyricItemEvent));
+            BatchedSongEditCommand batchedCommands = new BatchedSongEditCommand(commands);
+            ChartEditor.Instance.commandStack.Push(batchedCommands);
         }
 
         public void SetTime(uint tick)
@@ -22,7 +27,7 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
 
             if (lyricItemEvent != null)
             {
-                commands.Add(new SongEditDelete(lyricItemEvent));
+                commands.Add(new SongEditDelete(this.lyricItemEvent));
             }
 
             Event newLyric = new Event(this.text, tick);
