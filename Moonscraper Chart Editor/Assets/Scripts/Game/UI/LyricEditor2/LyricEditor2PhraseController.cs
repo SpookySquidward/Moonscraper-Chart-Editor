@@ -102,12 +102,12 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
         }
         lyricEvents.Add(new LyricItem(new Event(c_phraseEndKeyword, 0)));
 
-        generateDisplaySyllables(syllables);
+        GenerateDisplaySyllables(syllables);
     }
 
     // Create a list of syllables with added spaces that can be easily displayed
     // to the phraseText component.
-    void generateDisplaySyllables(List<string> syllables)
+    void GenerateDisplaySyllables(List<string> syllables)
     {
         for (int i = 0; i < syllables.Count; i++)
         {
