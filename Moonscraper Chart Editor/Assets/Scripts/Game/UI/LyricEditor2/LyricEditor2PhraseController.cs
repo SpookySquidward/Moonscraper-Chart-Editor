@@ -43,7 +43,7 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
 
     List<LyricItem> lyricEvents = new List<LyricItem>();
     int lyricEventsIndex = 1;
-    List<string> displaySyllables;
+    List<string> displaySyllables = new List<string>();
 
     public const string c_lyricPrefix = "lyric ";
     public const string c_phraseStartKeyword = "phrase_start";
