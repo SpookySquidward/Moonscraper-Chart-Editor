@@ -49,11 +49,21 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
 
     [UnityEngine.SerializeField]
     Text phraseText;
+    [UnityEngine.SerializeField]
+    UnityEngine.Color defaultColor;
+    [UnityEngine.SerializeField]
+    UnityEngine.Color unfocusedColor;
+    [UnityEngine.SerializeField]
+    UnityEngine.Color selectionColor;
+
+    string defaultColorString, unfocusedColorString, selectionColorString;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        defaultColorString = ColorToString(defaultColor);
+        unfocusedColorString = ColorToString(unfocusedColor);
+        selectionColorString = ColorToString(selectionColor);
     }
 
     // Update is called once per frame
@@ -119,4 +129,13 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
             displaySyllables.Add(currentSyllable);
         }
     }
+
+    // Converts a Color object into a string with format "#RRGGBBAA", which is
+    // recognized for Rich Text.
+    public string ColorToString(UnityEngine.Color color)
+    {
+        string formattedValue = "#" + UnityEngine.ColorUtility.ToHtmlStringRGBA(color);
+        return formattedValue;
+    }
+
 }

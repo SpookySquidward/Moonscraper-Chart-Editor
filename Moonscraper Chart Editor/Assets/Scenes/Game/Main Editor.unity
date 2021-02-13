@@ -10689,6 +10689,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca91b7db87452a418288f77e5f75651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  phraseStartPlaced: 0
+  phraseEndPlaced: 0
+  allSyllablesPlaced: 0
+  phraseText: {fileID: 1031271140}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  unfocusedColor: {r: 1, g: 1, b: 1, a: 0.3137255}
+  selectionColor: {r: 1, g: 0.7253649, b: 0.23113209, a: 1}
 --- !u!224 &534357237 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4289244241869284558, guid: a42c0e6dbb8072644a562b198b8ffdc2,
@@ -39494,7 +39501,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.1350098, y: -202.10306}
+  m_AnchoredPosition: {x: -1.1350098, y: -202.10307}
   m_SizeDelta: {x: -16.200012, y: 273.1942}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1783824858
@@ -48461,7 +48468,7 @@ PrefabInstance:
     - target: {fileID: 1301899982732144092, guid: 50e7de0d989f0a74cad9c1926db9987f,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -102
+      value: -101.99999
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50e7de0d989f0a74cad9c1926db9987f, type: 3}
