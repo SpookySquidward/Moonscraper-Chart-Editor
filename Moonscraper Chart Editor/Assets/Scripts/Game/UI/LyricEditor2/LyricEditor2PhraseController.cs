@@ -51,6 +51,7 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
     public bool phraseStartPlaced = false;
     public bool phraseEndPlaced = false;
     public bool allSyllablesPlaced = false;
+    public bool isCurrentlyPlacingLyric = false;
 
     [UnityEngine.SerializeField]
     Text phraseText;
@@ -62,7 +63,6 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
     UnityEngine.Color selectionColor;
 
     string defaultColorString, unfocusedColorString, selectionColorString;
-    bool isCurrentlyPlacingLyric = false;
 
     // Start is called before the first frame update
     void Start()
