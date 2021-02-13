@@ -57,6 +57,7 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
     UnityEngine.Color selectionColor;
 
     string defaultColorString, unfocusedColorString, selectionColorString;
+    bool isCurrentlyPlacingLyric = false;
 
     // Start is called before the first frame update
     void Start()
@@ -84,6 +85,7 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
             if (lyricEventsIndex == lyricEvents.Count - 1)
                 allSyllablesPlaced = true;
         }
+        UpdateDisplayedText();
     }
 
     // Set the phrase_start event tick
@@ -153,4 +155,34 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
         return targetString;
     }
 
+    // Uses the current lyricEventsIndex value to color the lyrics in, then
+    // pushes those lyrics to the phraseText component
+    public void UpdateDisplayedText()
+    {
+        int currentSyllableIndex = lyricEventsIndex - 1;
+        string runningStringPre = "";
+        for (int i = 0; i < currentSyllableIndex; i++)
+        {
+            runningStringPre += displaySyllables.ElementAt(i);
+        }
+        runningStringPre = AddColorTag(runningStringPre, unfocusedColorString);
+
+        string runningStringCurrent = "";
+        if (isCurrentlyPlacingLyric)
+        {
+            runningStringCurrent = AddColorTag(displaySyllables.ElementAt(currentSyllableIndex), selectionColorString);
+            currentSyllableIndex += 1;
+        }
+
+        string runningStringPost = "";
+        for (int i = currentSyllableIndex; i < displaySyllables.Count; i++)
+        {
+            runningStringPost += displaySyllables.ElementAt(i);
+        }
+        runningStringPost = AddColorTag(runningStringPost, defaultColorString);
+
+        string formattedPhrase = runningStringPre + runningStringCurrent + runningStringPost;
+
+        phraseText.text = formattedPhrase;
+    }
 }
