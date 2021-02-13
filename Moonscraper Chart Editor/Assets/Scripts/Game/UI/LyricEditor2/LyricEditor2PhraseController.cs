@@ -132,10 +132,25 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
 
     // Converts a Color object into a string with format "#RRGGBBAA", which is
     // recognized for Rich Text.
-    public string ColorToString(UnityEngine.Color color)
+    string ColorToString(UnityEngine.Color color)
     {
         string formattedValue = "#" + UnityEngine.ColorUtility.ToHtmlStringRGBA(color);
         return formattedValue;
+    }
+
+    // Adds Rich Text color formatting to a given string. If the string is
+    // null or empty, this method instead passes the string without
+    // modification.
+    string AddColorTag(string targetString, string colorKey)
+    {
+        if (!string.IsNullOrEmpty(targetString))
+        {
+            string tempString = "<color=" + colorKey + ">";
+            tempString += targetString;
+            tempString += "</color>";
+            return tempString;
+        }
+        return targetString;
     }
 
 }
