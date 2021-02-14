@@ -53,4 +53,19 @@ public class LyricEditor2Interface : UnityEngine.MonoBehaviour
 
         return parsedLyrics;
     }
+
+    // Grab the user's lyric input and use it to construct new phrase objects
+    public void SubmitLyrics()
+    {
+        string userInput = inputMenu.GetUserInput();
+        List<List<string>> parsedLyrics = ParseLyrics(userInput);
+        for (int i = 0; i < parsedLyrics.Count; i++)
+        {
+            List<string> lyricPhraseStrings = parsedLyrics.ElementAt(i);
+            LyricEditor2PhraseController phraseController = UnityEngine.GameObject.Instantiate(phraseTemplate, phraseTemplate.transform.parent).GetComponent<LyricEditor2PhraseController>();
+            phraseController.gameObject.SetActive(true);
+            phraseController.InitializeSyllables(lyricPhraseStrings);
+            currentPhrases.Add(phraseController);
+        }
+    }
 }
