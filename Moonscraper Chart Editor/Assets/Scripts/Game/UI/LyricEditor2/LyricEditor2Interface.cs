@@ -8,6 +8,11 @@ public class LyricEditor2Interface : UnityEngine.MonoBehaviour
 {
     [UnityEngine.SerializeField]
     LyricEditor2PhraseController phraseTemplate;
+    [UnityEngine.SerializeField]
+    LyricEditor2InputMenu inputMenu;
+
+    List<string> testLyrics = new List<string>();
+    List<LyricEditor2PhraseController> currentPhrases = new List<LyricEditor2PhraseController>();
 
     // Start is called before the first frame update
     void Start()
