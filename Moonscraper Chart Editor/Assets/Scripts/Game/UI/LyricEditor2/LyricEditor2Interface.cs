@@ -74,4 +74,10 @@ public class LyricEditor2Interface : UnityEngine.MonoBehaviour
             currentPhrases.Add(phraseController);
         }
     }
+
+    // Open the lyric input menu
+    public void ActivateLyricInputMenu()
+    {
+        inputMenu.StartEdit("<placeholder>");
+    }
 }

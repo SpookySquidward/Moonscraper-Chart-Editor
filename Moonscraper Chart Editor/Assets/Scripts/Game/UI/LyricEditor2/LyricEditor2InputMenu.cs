@@ -22,4 +22,16 @@ public class LyricEditor2InputMenu : UnityEngine.MonoBehaviour
     {
         return inputField.text;
     }
+
+    // Open the input panel to accept user input
+    public void StartEdit(string startingText)
+    {
+        inputField.text = startingText;
+        gameObject.SetActive(true);
+    }
+
+    public void StartEdit()
+    {
+        StartEdit("");
+    }
 }
