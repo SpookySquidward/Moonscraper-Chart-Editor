@@ -5419,18 +5419,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 248521483}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 763857278}
-        m_MethodName: Set
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &248521483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10016,7 +10005,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000045776367, y: 0.002166748}
+  m_AnchoredPosition: {x: -0.000061035156, y: 0.002166748}
   m_SizeDelta: {x: -19.999924, y: -19.995667}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &488533227
@@ -14976,7 +14965,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.0000076293945}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20.000008}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &713436012
@@ -35697,18 +35686,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1565016214}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 763857278}
-        m_MethodName: Add
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1565016214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48762,18 +48740,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2118229931}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 763857278}
-        m_MethodName: Delete
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2118229931
 MonoBehaviour:
   m_ObjectHideFlags: 0
