@@ -173,6 +173,10 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
     {
         int currentSyllableIndex = lyricEventsIndex - 1;
         string runningStringPre = "";
+
+        if (isCurrentlyPlacingLyric && currentSyllableIndex > 0)
+            currentSyllableIndex -= 1;
+
         for (int i = 0; i < currentSyllableIndex; i++)
         {
             runningStringPre += displaySyllables.ElementAt(i);
