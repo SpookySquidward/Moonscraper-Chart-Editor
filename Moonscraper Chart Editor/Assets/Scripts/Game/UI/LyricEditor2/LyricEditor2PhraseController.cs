@@ -11,6 +11,12 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
         public string text = "";
         public bool hasBeenPlaced = false;
 
+
+        public LyricItem(string text)
+        {
+            this.text = text;
+        }
+
         public LyricItem(Event lyricEvent)
         {
             this.lyricItemEvent = lyricEvent;
@@ -112,12 +118,12 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
     {
         lyricEvents.Clear();
 
-        lyricEvents.Add(new LyricItem(new Event(c_phraseStartKeyword, 0)));
+        lyricEvents.Add(new LyricItem(c_phraseStartKeyword));
         foreach (string syllable in syllables)
         {
-            lyricEvents.Add(new LyricItem(new Event(syllable, 0)));
+            lyricEvents.Add(new LyricItem(syllable));
         }
-        lyricEvents.Add(new LyricItem(new Event(c_phraseEndKeyword, 0)));
+        lyricEvents.Add(new LyricItem(c_phraseEndKeyword));
 
         GenerateDisplaySyllables(syllables);
         UpdateDisplayedText();
