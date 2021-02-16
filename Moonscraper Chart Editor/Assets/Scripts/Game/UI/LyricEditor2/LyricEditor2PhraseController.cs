@@ -58,6 +58,7 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
     public bool phraseEndPlaced = false;
     public bool allSyllablesPlaced = false;
     public bool isCurrentlyPlacingLyric = false;
+    public uint phraseEndTick;
 
     [UnityEngine.SerializeField]
     Text phraseText;
@@ -103,12 +104,15 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
     public void SetPhraseStart(uint tick)
     {
         lyricEvents.ElementAt(0).SetTime(tick);
+        phraseStartPlaced = true;
     }
 
     // Set the phrase_end event tick
     public void SetPhraseEnd(uint tick)
     {
         lyricEvents.ElementAt(lyricEvents.Count - 1).SetTime(tick);
+        phraseEndPlaced = true;
+        phraseEndTick = tick;
     }
 
     // Create LyricItem events for each passed syllable and the phrase start
