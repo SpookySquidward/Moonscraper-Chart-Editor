@@ -14,6 +14,7 @@ public class LyricEditor2Interface : UnityEngine.MonoBehaviour
     List<string> testLyrics = new List<string>();
     List<LyricEditor2PhraseController> currentPhrases = new List<LyricEditor2PhraseController>();
     LyricEditor2PhraseController currentPhrase;
+    uint lastSafeTick = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -96,6 +97,19 @@ public class LyricEditor2Interface : UnityEngine.MonoBehaviour
         if (!currentPhrase.allSyllablesPlaced)
         {
             currentPhrase.PlaceNextLyric(currentTick);
+        }
+    }
+
+    // Called when the "Place Lyric" button is released; stops placing down the
+    // previous lyric
+    public void OnPlaceButtonReleased()
+    {
+        uint currentTick = ChartEditor.Instance.currentTickPos;
+        currentPhrase.StopPlacingLyric(currentTick);
+        if (currentPhrase.allSyllablesPlaced)
+        {
+            lastSafeTick = currentPhrase.phraseEndTick;
+            // MoveToNextPhrase();
         }
     }
 }
