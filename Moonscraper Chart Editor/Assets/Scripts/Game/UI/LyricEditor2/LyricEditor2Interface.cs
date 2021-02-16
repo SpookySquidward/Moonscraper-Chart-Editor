@@ -85,6 +85,18 @@ public class LyricEditor2Interface : UnityEngine.MonoBehaviour
     // Open the lyric input menu
     public void ActivateLyricInputMenu()
     {
-        inputMenu.StartEdit("<placeholder>");
+        inputMenu.StartEdit("1-2-3-4-5-6-7-8-9-0");
+    }
+
+    // Called when the "Place Lyric" button is pressed down; starts placing the
+    // next-up lyric.
+    public void OnPlaceButtonPressed()
+    {
+        uint currentTick = ChartEditor.Instance.currentTickPos;
+        if (!currentPhrase.allSyllablesPlaced)
+        {
+            currentPhrase.isCurrentlyPlacingLyric = true;
+            currentPhrase.PlaceNextLyric(currentTick);
+        }
     }
 }
