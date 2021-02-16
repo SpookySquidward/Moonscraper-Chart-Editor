@@ -95,7 +95,6 @@ public class LyricEditor2Interface : UnityEngine.MonoBehaviour
         uint currentTick = ChartEditor.Instance.currentTickPos;
         if (!currentPhrase.allSyllablesPlaced)
         {
-            currentPhrase.isCurrentlyPlacingLyric = true;
             currentPhrase.PlaceNextLyric(currentTick);
         }
     }
