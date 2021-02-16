@@ -108,7 +108,7 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
     // Set the phrase_end event tick
     public void SetPhraseEnd(uint tick)
     {
-        lyricEvents.ElementAt(lyricEvents.Count).SetTime(tick);
+        lyricEvents.ElementAt(lyricEvents.Count - 1).SetTime(tick);
     }
 
     // Create LyricItem events for each passed syllable and the phrase start
