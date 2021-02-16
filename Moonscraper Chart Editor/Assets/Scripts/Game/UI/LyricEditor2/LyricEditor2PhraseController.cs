@@ -96,7 +96,21 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
 
             if (lyricEventsIndex == lyricEvents.Count - 1)
                 allSyllablesPlaced = true;
+
+            isCurrentlyPlacingLyric = true;
         }
+        UpdateDisplayedText();
+    }
+
+    // Stop placing the most recent syllable, and set the phrase_end event if
+    // the last syllabel was just placed
+    public void StopPlacingLyric(uint tick)
+    {
+        if (allSyllablesPlaced)
+        {
+            SetPhraseEnd(tick);
+        }
+        isCurrentlyPlacingLyric = false;
         UpdateDisplayedText();
     }
 
