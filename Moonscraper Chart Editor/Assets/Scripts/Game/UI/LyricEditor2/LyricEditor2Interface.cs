@@ -13,6 +13,7 @@ public class LyricEditor2Interface : UnityEngine.MonoBehaviour
 
     List<string> testLyrics = new List<string>();
     List<LyricEditor2PhraseController> currentPhrases = new List<LyricEditor2PhraseController>();
+    LyricEditor2PhraseController currentPhrase;
 
     // Start is called before the first frame update
     void Start()
@@ -72,6 +73,12 @@ public class LyricEditor2Interface : UnityEngine.MonoBehaviour
             phraseController.gameObject.SetActive(true);
             phraseController.InitializeSyllables(lyricPhraseStrings);
             currentPhrases.Add(phraseController);
+        }
+        // If one or more phrases were created, set currentPhrase to the first
+        // one
+        if (currentPhrases.Count > 0)
+        {
+            currentPhrase = currentPhrases.ElementAt(0);
         }
     }
 
