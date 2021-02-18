@@ -98,7 +98,13 @@ public class LyricEditor2Interface : UnityEngine.MonoBehaviour
     // Open the lyric input menu
     public void ActivateLyricInputMenu()
     {
-        inputMenu.StartEdit("1-2-3-4-5-6-7-8-9-0");
+        string tempString = "";
+        foreach (LyricEditor2PhraseController phrase in currentPhrases)
+        {
+            tempString += phrase.GetString();
+        }
+        inputMenu.StartEdit(tempString);
+        ClearCurrentPhrases();
     }
 
     // Called when the "Place Lyric" button is pressed down; starts placing the
