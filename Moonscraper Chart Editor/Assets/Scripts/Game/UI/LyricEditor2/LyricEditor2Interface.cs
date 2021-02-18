@@ -112,9 +112,16 @@ public class LyricEditor2Interface : UnityEngine.MonoBehaviour
     public void OnPlaceButtonPressed()
     {
         uint currentTick = ChartEditor.Instance.currentTickPos;
-        if (!currentPhrase.allSyllablesPlaced)
+        if (currentPhrase != null)
         {
-            currentPhrase.PlaceNextLyric(currentTick);
+            if (!currentPhrase.phraseStartPlaced)
+            {
+                currentPhrase.SetPhraseStart(currentTick);
+            }
+            if (!currentPhrase.allSyllablesPlaced)
+            {
+                currentPhrase.PlaceNextLyric(currentTick);
+            }
         }
     }
 
@@ -123,11 +130,16 @@ public class LyricEditor2Interface : UnityEngine.MonoBehaviour
     public void OnPlaceButtonReleased()
     {
         uint currentTick = ChartEditor.Instance.currentTickPos;
-        currentPhrase.StopPlacingLyric(currentTick);
-        if (currentPhrase.allSyllablesPlaced)
+        if (currentPhrase != null)
         {
-            lastSafeTick = currentPhrase.phraseEndTick;
-            // MoveToNextPhrase();
+            currentPhrase.StopPlacingLyric(currentTick);
+            if (currentPhrase.allSyllablesPlaced)
+            {
+                lastSafeTick = currentPhrase.phraseEndTick;
+                AdvancePhrase();
+            }
         }
     }
+
+    
 }
