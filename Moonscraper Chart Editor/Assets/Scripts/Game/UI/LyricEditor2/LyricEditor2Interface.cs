@@ -141,5 +141,13 @@ public class LyricEditor2Interface : UnityEngine.MonoBehaviour
         }
     }
 
-    
+    // Move to the next phrase, if it exists
+    void AdvancePhrase()
+    {
+        int targetIndex = currentPhrases.IndexOf(currentPhrase) + 1;
+        if (currentPhrases.Count > targetIndex)
+        {
+            currentPhrase = currentPhrases.ElementAt(targetIndex);
+        }
+    }
 }
