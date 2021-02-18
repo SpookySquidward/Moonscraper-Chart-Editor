@@ -52,9 +52,9 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
     int lyricEventsIndex = 1;
     List<string> displaySyllables = new List<string>();
 
-    public const string c_lyricPrefix = "lyric ";
-    public const string c_phraseStartKeyword = "phrase_start";
-    public const string c_phraseEndKeyword = "phrase_end";
+    public static string c_lyricPrefix = "lyric ";
+    public static string c_phraseStartKeyword = "phrase_start";
+    public static string c_phraseEndKeyword = "phrase_end";
     public bool phraseStartPlaced = false;
     public bool phraseEndPlaced = false;
     public bool allSyllablesPlaced = false;
