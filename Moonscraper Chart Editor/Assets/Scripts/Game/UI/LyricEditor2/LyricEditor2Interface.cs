@@ -83,6 +83,18 @@ public class LyricEditor2Interface : UnityEngine.MonoBehaviour
         }
     }
 
+    // Get rid of any phrases in currentPhrases
+    void ClearCurrentPhrases()
+    {
+        foreach(LyricEditor2PhraseController phrase in currentPhrases)
+        {
+            phrase.ClearFromEditor();
+            UnityEngine.Object.Destroy(phrase.gameObject);
+        }
+        currentPhrases.Clear();
+        currentPhrase = null;
+    }
+
     // Open the lyric input menu
     public void ActivateLyricInputMenu()
     {
