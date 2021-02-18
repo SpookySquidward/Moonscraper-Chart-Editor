@@ -220,4 +220,17 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
 
         phraseText.text = formattedPhrase;
     }
+
+    // Converts the stored syllables to a string (used for importing interface
+    // lyrics to the input menu)
+    public string GetString()
+    {
+        string tempString = "";
+        foreach (string syllable in displaySyllables)
+        {
+            tempString += syllable;
+        }
+        tempString += "\n";
+        return tempString;
+    }
 }
