@@ -233,4 +233,18 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
         tempString += "\n";
         return tempString;
     }
+
+    // Purge all events associated with this phrase chart editor. Must be called
+    // before dereferencing a phrase controller object!
+    public void ClearFromEditor()
+    {
+        List<SongEditCommand> commands = new List<SongEditCommand>();
+        foreach (LyricItem syllable in lyricEvents)
+        {
+            if (syllable.lyricItemEvent != null)
+                commands.Add(new SongEditDelete(syllable.lyricItemEvent));
+        }
+        BatchedSongEditCommand batchedCommands = new BatchedSongEditCommand(commands);
+        ChartEditor.Instance.commandStack.Push(batchedCommands);
+    }
 }
