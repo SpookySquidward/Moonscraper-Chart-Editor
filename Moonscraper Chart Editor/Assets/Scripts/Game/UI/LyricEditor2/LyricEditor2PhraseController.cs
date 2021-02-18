@@ -14,6 +14,7 @@ public class LyricEditor2PhraseController : UnityEngine.MonoBehaviour
 
         public LyricItem(string text)
         {
+            text = text.TrimEnd(); // Otherwise terminating spaces are saved to the .chart file
             this.text = text;
         }
 
